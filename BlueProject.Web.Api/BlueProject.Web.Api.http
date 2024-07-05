@@ -1,0 +1,6 @@
+@BlueProject.Web.Api_HostAddress = http://localhost:5224
+
+GET {{BlueProject.Web.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
