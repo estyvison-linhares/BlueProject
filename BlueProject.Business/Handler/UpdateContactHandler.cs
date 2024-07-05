@@ -2,6 +2,7 @@
 using BlueProject.Business.Command;
 using BlueProject.Business.Dto;
 using BlueProject.Business.Response;
+using BlueProject.Domain.Exceptions;
 using BlueProject.Infra.Interfaces;
 using MediatR;
 
@@ -20,26 +21,30 @@ namespace BlueProject.Business.Handler
 
         public async Task<ApiResponse<ContactDto>> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
         {
-            var existingContact = await _contactRepository.GetContactByIdAsync(request.Id);
-
-            if (existingContact == null)
-            {
-                return new ApiResponse<ContactDto>("Contact not found.");
-            }
-
-            existingContact.SetName(request.Name);
-            existingContact.SetEmail(request.Email);
-            existingContact.SetPhone(request.Phone);
-
             try
             {
+                var existingContact = await _contactRepository.GetContactByIdAsync(request.Id);
+
+                if (existingContact == null)
+                {
+                    throw new NotFoundException("Contact", request.Id);
+                }
+
+                existingContact.SetName(request.Name);
+                existingContact.SetEmail(request.Email);
+                existingContact.SetPhone(request.Phone);
+
                 var updatedContact = await _contactRepository.UpdateContactAsync(existingContact);
                 var contactDto = _mapper.Map<ContactDto>(updatedContact);
                 return new ApiResponse<ContactDto>(contactDto);
             }
+            catch (NotFoundException ex)
+            {
+                return ApiResponse<ContactDto>.FromException(ex);
+            }
             catch (Exception ex)
             {
-                return new ApiResponse<ContactDto>($"Failed to update contact: {ex.Message}");
+                return ApiResponse<ContactDto>.FromException(ex);
             }
         }
     }

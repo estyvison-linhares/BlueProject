@@ -32,7 +32,7 @@ namespace BlueProject.Business.Handler
             }
             catch (Exception ex)
             {
-                return new ApiResponse<ContactDto>($"Failed to create contact: {ex.Message}");
+                return ApiResponse<ContactDto>.FromException(ex);
             }
         }
     }

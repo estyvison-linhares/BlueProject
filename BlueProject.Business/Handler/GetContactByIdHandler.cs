@@ -2,6 +2,7 @@
 using BlueProject.Business.Dto;
 using BlueProject.Business.Query;
 using BlueProject.Business.Response;
+using BlueProject.Domain.Exceptions;
 using BlueProject.Infra.Interfaces;
 using MediatR;
 
@@ -20,15 +21,23 @@ namespace BlueProject.Business.Handler
 
         public async Task<ApiResponse<ContactDto>> Handle(GetContactByIdQuery request, CancellationToken cancellationToken)
         {
-            var contact = await _contactRepository.GetContactByIdAsync(request.Id);
-
-            if (contact == null)
+            try
             {
-                return new ApiResponse<ContactDto>("Contact not found.");
-            }
+                var contact = await _contactRepository.GetContactByIdAsync(request.Id);
 
-            var contactDto = _mapper.Map<ContactDto>(contact);
-            return new ApiResponse<ContactDto>(contactDto);
+                if (contact == null)
+                {
+                    throw new NotFoundException("Contact", request.Id);
+                }
+
+                var contactDto = _mapper.Map<ContactDto>(contact);
+                
+                return new ApiResponse<ContactDto>(contactDto);
+            } catch (NotFoundException ex)
+            {
+                return ApiResponse<ContactDto>.FromException(ex);
+            }
+            
         }
     }
 }

@@ -19,5 +19,10 @@
             Data = default;
             ErrorMessage = errorMessage;
         }
+
+        public static ApiResponse<T> FromException(Exception ex)
+        {
+            return new ApiResponse<T>(ex.Message);
+        }
     }
 }
