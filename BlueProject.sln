@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Infra", "BluePr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Domain", "BlueProject.Domain\BlueProject.Domain.csproj", "{B7E7C6AD-221A-415A-AA26-6028F2F2968E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueProject.Business.Tests", "BlueProject.Business.Tests\BlueProject.Business.Tests.csproj", "{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Business.Tests", "BlueProject.Business.Tests\BlueProject.Business.Tests.csproj", "{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
