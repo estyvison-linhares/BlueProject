@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueProject.Web.Api", "BlueProject.Web.Api\BlueProject.Web.Api.csproj", "{7366B4B7-CC44-4C4F-BA38-B38891AB3157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Web.Api", "BlueProject.Web.Api\BlueProject.Web.Api.csproj", "{7366B4B7-CC44-4C4F-BA38-B38891AB3157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueProject.Business", "BlueProject.Business\BlueProject.Business.csproj", "{841E89A9-863B-4A62-9402-BC52E1AD0F16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Business", "BlueProject.Business\BlueProject.Business.csproj", "{841E89A9-863B-4A62-9402-BC52E1AD0F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueProject.Infra", "BlueProject.Infra\BlueProject.Infra.csproj", "{F48D863E-2C25-460D-8E8A-BE2A68450808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Infra", "BlueProject.Infra\BlueProject.Infra.csproj", "{F48D863E-2C25-460D-8E8A-BE2A68450808}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueProject.Domain", "BlueProject.Domain\BlueProject.Domain.csproj", "{B7E7C6AD-221A-415A-AA26-6028F2F2968E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueProject.Domain", "BlueProject.Domain\BlueProject.Domain.csproj", "{B7E7C6AD-221A-415A-AA26-6028F2F2968E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueProject.Business.Tests", "BlueProject.Business.Tests\BlueProject.Business.Tests.csproj", "{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B7E7C6AD-221A-415A-AA26-6028F2F2968E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7E7C6AD-221A-415A-AA26-6028F2F2968E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7E7C6AD-221A-415A-AA26-6028F2F2968E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F85C540-234E-483B-B03D-CE0C4FE1F3E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
