@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '../axios';
 
 export default {
   data() {
@@ -50,7 +50,7 @@ export default {
   methods: {
     async fetchContacts() {
       try {
-        const response = await axios.get('https://localhost:7016/api/Contacts');
+        const response = await axios.get();
         this.contacts = response.data.data;
       } catch (error) {
         this.$refs.toast.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao buscar contatos' });
@@ -67,7 +67,7 @@ export default {
     async saveContact() {
       if (this.contact.id) {
         try {
-          const response = await axios.put(`https://localhost:7016/api/Contacts/${this.contact.id}`, this.contact);
+          const response = await axios.put(`${this.contact.id}`, this.contact);
           const index = this.contacts.findIndex(c => c.id === this.contact.id);
           this.contacts[index] = response.data.data;
           this.$refs.toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Contato atualizado' });
@@ -76,7 +76,7 @@ export default {
         }
       } else {
         try {
-          const response = await axios.post('https://localhost:7016/api/Contacts', this.contact);
+          const response = await axios.post('', this.contact);
           this.contacts.push(response.data.data);
           this.$refs.toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Contato criado' });
         } catch (error) {
@@ -88,7 +88,7 @@ export default {
     },
     async deleteContact(id) {
       try {
-        await axios.delete(`https://localhost:7016/api/Contacts/${id}`);
+        await axios.delete(`${id}`);
         this.contacts = this.contacts.filter(c => c.id !== id);
         this.$refs.toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Contato excluído' });
       } catch (error) {
