@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contact-list">
     <h2>Lista de Contatos</h2>
     <PvButton label="Novo Contato" icon="pi pi-plus" @click="openNew" class="button-new" />
 
@@ -15,18 +15,18 @@
       </PvColumn>
     </PvDataTable>
 
-    <PvDialog :visible="contactDialog" modal header="Detalhes do Contato" @hide="contactDialog = false" class="dialog">
-      <div class="p-field">
-        <label for="name">Nome</label>
-        <PvInputText id="name" v-model="contact.name" />
+    <PvDialog :visible="contactDialog" modal header="Detalhes do Contato" @hide="contactDialog = false" class="dialog" :closable="false">
+      <div class="p-field p-grid">
+        <label for="name" class="p-col-fixed label">Nome</label>
+        <PvInputText id="name" v-model="contact.name" class="p-inputtext p-component input" />
       </div>
-      <div class="p-field">
-        <label for="email">E-mail</label>
-        <PvInputText id="email" v-model="contact.email" />
+      <div class="p-field p-grid">
+        <label for="email" class="p-col-fixed label">E-mail</label>
+        <PvInputText id="email" v-model="contact.email" class="p-inputtext p-component input" />
       </div>
-      <div class="p-field">
-        <label for="phone">Telefone</label>
-        <PvInputText id="phone" v-model="contact.phone" />
+      <div class="p-field p-grid">
+        <label for="phone" class="p-col-fixed label">Telefone</label>
+        <PvInputText id="phone" v-model="contact.phone" class="p-inputtext p-component input" />
       </div>
       <PvButton label="Salvar" icon="pi pi-check" @click="saveContact" class="button-save" />
       <PvButton label="Cancelar" icon="pi pi-times" @click="cancelContact" class="button-cancel" />
@@ -122,11 +122,21 @@ export default {
 }
 
 .dialog {
-  width: 300px;
+  width: 400px;
 }
 
 .p-field {
   margin-bottom: 15px;
+}
+
+.p-field .label {
+  flex: 0 0 100px;
+  display: flex;
+  align-items: center;
+}
+
+.p-field .input {
+  flex: 1;
 }
 
 .button-save {
