@@ -7,7 +7,7 @@ BlueProject é uma aplicação para gerenciamento de contatos desenvolvida como 
 ### Backend
 - .NET Core
 - Entity Framework Core
-- MediatR
+- MediatR (Versão 11.0.0)
 - AutoMapper
 - Swagger
 
